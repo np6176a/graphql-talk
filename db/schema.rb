@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_09_174707) do
+ActiveRecord::Schema.define(version: 2019_01_09_175014) do
+
+  create_table "lemurs", force: :cascade do |t|
+    t.string "name"
+    t.integer "age"
+    t.integer "owner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["owner_id"], name: "index_lemurs_on_owner_id"
+  end
 
   create_table "owners", force: :cascade do |t|
     t.string "first_name"
